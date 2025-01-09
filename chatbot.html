@@ -1,46 +1,11 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot - Videojuegos y Cultura General</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            color: #343a40;
-        }
-        #chatbox {
-            height: 500px;
-            overflow-y: auto;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            padding: 10px;
-            background-color: #ffffff;
-        }
-        .user-message {
-            text-align: right;
-            margin: 5px 0;
-        }
-        .bot-message {
-            text-align: left;
-            margin: 5px 0;
-        }
-        .message {
-            display: inline-block;
-            padding: 10px 15px;
-            border-radius: 15px;
-            max-width: 70%;
-        }
-        .user-message .message {
-            background-color: #0d6efd;
-            color: white;
-        }
-        .bot-message .message {
-            background-color: #6c757d;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container my-5">
@@ -54,63 +19,6 @@
         </form>
     </div>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- JavaScript del Chatbot -->
-    <script>
-        const chatbox = document.getElementById('chatbox');
-        const chatForm = document.getElementById('chat-form');
-        const userInput = document.getElementById('user-input');
-
-        // Preguntas y respuestas predefinidas
-        const qaPairs = {
-            "¿Cuál es el videojuego más vendido de todos los tiempos?": "Minecraft, con más de 200 millones de copias vendidas.",
-            "¿Qué consola introdujo el joystick analógico?": "La consola Nintendo 64.",
-            "¿En qué año se lanzó el primer juego de Mario Bros?": "En 1985.",
-            "¿Qué significa RPG en videojuegos?": "Significa Role-Playing Game (Juego de rol).",
-            "¿Qué videojuego popular tiene un personaje llamado Master Chief?": "La saga Halo.",
-            "¿Qué desarrolladora creó el juego The Legend of Zelda?": "Nintendo.",
-            "¿En qué año se lanzó la PlayStation 2?": "En el año 2000.",
-            "¿Qué videojuego popular incluye el modo Battle Royale?": "Fortnite.",
-            "¿Qué compañía desarrolló el juego Minecraft?": "Mojang Studios.",
-            "¿Qué juego popular incluye la frase 'Finish Him'?": "Mortal Kombat.",
-            "¿Quién es el creador de la saga Metal Gear Solid?": "Hideo Kojima.",
-            "¿Cuál es el nombre del protagonista de The Witcher?": "Geralt de Rivia.",
-            "¿Qué significa NPC en videojuegos?": "Non-Playable Character (Personaje no jugable).",
-            "¿Qué juego popular tiene lugar en el mundo de Hyrule?": "The Legend of Zelda.",
-            "¿Cuál es el primer videojuego de la historia?": "Pong, lanzado en 1972.",
-            "¿Qué significa FPS en videojuegos?": "First-Person Shooter (Disparos en primera persona).",
-            "¿Qué juego se considera el precursor de los eSports?": "StarCraft.",
-            "¿Cuál es el nombre del creador de Super Mario?": "Shigeru Miyamoto.",
-            "¿Qué significa MMO en videojuegos?": "Massively Multiplayer Online (Multijugador masivo en línea).",
-            "¿Qué juego incluye personajes como Ryu y Chun-Li?": "Street Fighter."
-        };
-
-        // Manejar el envío del formulario
-        chatForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const userMessage = userInput.value.trim();
-            if (userMessage) {
-                addMessage('user', userMessage);
-                const botResponse = getBotResponse(userMessage);
-                addMessage('bot', botResponse);
-                userInput.value = '';
-            }
-        });
-
-        // Obtener respuesta del bot
-        function getBotResponse(message) {
-            return qaPairs[message] || "Lo siento, no tengo una respuesta para esa pregunta.";
-        }
-
-        // Añadir mensaje al chatbox
-        function addMessage(sender, text) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
-            messageDiv.innerHTML = `<div class="message">${text}</div>`;
-            chatbox.appendChild(messageDiv);
-            chatbox.scrollTop = chatbox.scrollHeight;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
